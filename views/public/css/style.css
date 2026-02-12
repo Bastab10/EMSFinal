@@ -1,0 +1,34 @@
+body{
+  background: linear-gradient(
+    135deg,
+    #e6edf2,
+    #cfd8dc
+  );
+}
+
+/* Card Box */
+.auth-card{
+  background:#f4f4f4;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+.form-control,
+.form-select{
+  height:45px;
+  border-radius:8px;
+}
+
+/* Button */
+.btn-main{
+  background:#a94442;
+  color:#fff;
+  padding:10px 25px;
+  border:none;
+}
+
+.btn-main:hover{
+  background:#922d2b;
+}

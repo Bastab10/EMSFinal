@@ -1,0 +1,52 @@
+
+<div class="container mt-5">
+
+  <!-- Event Card -->
+  <div class="card shadow-lg border-0">
+
+    <!-- Event Image -->
+    <img 
+      src="<%= event.image %>" 
+      class="card-img-top"
+      style="height:400px; object-fit:cover;"
+    >
+
+    <div class="card-body">
+
+      <!-- Category Badge -->
+      <span class="badge bg-info mb-2">
+        <%= event.category %>
+      </span>
+
+      <!-- Title -->
+      <h2 class="card-title fw-bold">
+        <%= event.title %>
+      </h2>
+
+      <!-- Date -->
+      <p class="text-muted">
+        📅 <%= event.date.toDateString() %>
+      </p>
+
+      <!-- Description -->
+      <p class="card-text">
+        <%= event.description %>
+      </p>
+
+      <!-- Buttons -->
+      <div class="mt-4">
+
+        <a href="/events" class="btn btn-secondary">
+          ← Back
+        </a>
+
+        <a href="#" class="btn btn-success">
+          Register
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,105 @@
+<div class="container d-flex justify-content-center align-items-center"
+     style="min-height: 90vh;">
+
+  <div class="card shadow-lg p-4"
+       style="width: 900px; border-radius: 15px;">
+
+    <h2 class="mb-4">Sign Up</h2>
+
+    <form action="/signup" method="POST">
+
+      <div class="row">
+
+        <!-- Full Name -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name *</label>
+          <input name="fullname" class="form-control">
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email *</label>
+          <input name="email" class="form-control">
+        </div>
+
+        <!-- College ID -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">College ID *</label>
+          <input name="collegeId" class="form-control">
+        </div>
+
+        <!-- Role -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Role *</label>
+          <select name="role" class="form-select">
+            <option>Student</option>
+            <option>Faculty</option>
+          </select>
+        </div>
+
+        <!-- Branch -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Branch *</label>
+          <select name="branch" class="form-select">
+            <option>Select Branch</option>
+            <option>CSE</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>ME</option>
+          </select>
+        </div>
+
+        <!-- Year -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Year *</label>
+          <select name="year" class="form-select">
+            <option>Select Year</option>
+            <option>1st</option>
+            <option>2nd</option>
+            <option>3rd</option>
+            <option>4th</option>
+          </select>
+        </div>
+
+        <!-- Section -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Section *</label>
+          <input name="section" class="form-control">
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Phone Number *</label>
+          <input name="phone" class="form-control">
+        </div>
+
+        <!-- Password -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Password *</label>
+          <input type="password"
+                 name="password"
+                 class="form-control">
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Confirm Password *</label>
+          <input type="password"
+                 name="confirmPassword"
+                 class="form-control">
+        </div>
+
+      </div>
+
+      <!-- Button -->
+      <div class="text-end">
+        <button class="btn btn-danger px-4">
+          Create Account
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
