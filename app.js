@@ -1,3 +1,5 @@
+// ================= IMPORTS =================
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -5,30 +7,80 @@ require("dotenv").config();
 
 const expressLayouts = require("express-ejs-layouts");
 
+
+// ================= APP INIT =================
+
 const app = express();
 
-// MongoDB
+
+// ================= DATABASE =================
+
 mongoose.connect(process.env.MONGO_URL)
-.then(()=> console.log("Mongo Connected"))
-.catch(err => console.log(err));
+.then(()=>{
+  console.log("Mongo Connected");
+})
+.catch((err)=>{
+  console.log(err);
+});
+
+
+// ================= VIEW ENGINE =================
 
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"views"));
 
-app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname,"public")));
+app.set(
+  "views",
+  path.join(__dirname,"views")
+);
 
-// Layout setup
+
+// ================= MIDDLEWARE =================
+
+app.use(express.urlencoded({
+  extended:true
+}));
+
+app.use(
+  express.static(
+    path.join(__dirname,"public")
+  )
+);
+
+
+// ================= LAYOUT SETUP =================
+
 app.use(expressLayouts);
-app.set("layout","layouts/boilerplate");
 
-// Routes
-const userRoutes = require("./routes/user");
-const eventRoutes = require("./routes/event");
+app.set(
+  "layout",
+  "layouts/boilerplate"
+);
 
-app.use("/",userRoutes);
-app.use("/events",eventRoutes);
 
-app.listen(8080,()=>{
-  console.log("Server Running on 8080");
+// ================= ROUTES =================
+
+// User Auth Routes
+const userRoutes =
+require("./routes/user");
+
+// Event Routes
+const eventRoutes =
+require("./routes/event");
+
+
+// Route Use
+
+app.use("/", userRoutes);
+
+app.use("/events", eventRoutes);
+
+
+// ================= SERVER =================
+
+app.listen(8080, ()=>{
+
+  console.log(
+    "Server Running on 8080"
+  );
+
 });
