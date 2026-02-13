@@ -29,6 +29,6 @@ const eventRoutes = require("./routes/event");
 app.use("/",userRoutes);
 app.use("/events",eventRoutes);
 
-app.listen(3000,()=>{
-  console.log("Server Running on 3000");
+app.listen(8080,()=>{
+  console.log("Server Running on 8080");
 });

@@ -13,32 +13,40 @@
         <!-- Full Name -->
         <div class="col-md-6 mb-3">
           <label class="form-label">Full Name *</label>
-          <input name="fullname" class="form-control">
+          <input name="fullname" class="form-control" required>
         </div>
 
         <!-- Email -->
         <div class="col-md-6 mb-3">
           <label class="form-label">Email *</label>
-          <input name="email" class="form-control">
+          <input type="email"
+                 name="email"
+                 class="form-control" required>
         </div>
 
         <!-- College ID -->
         <div class="col-md-6 mb-3">
           <label class="form-label">College ID *</label>
-          <input name="collegeId" class="form-control">
+          <input name="collegeId"
+                 class="form-control" required>
         </div>
 
         <!-- Role -->
         <div class="col-md-6 mb-3">
           <label class="form-label">Role *</label>
-          <select name="role" class="form-select">
-            <option>Student</option>
-            <option>Faculty</option>
+          <select name="role"
+                  id="role"
+                  class="form-select" required>
+            <option value="">Select Role</option>
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
           </select>
         </div>
 
+        <!-- ========== STUDENT FIELDS ========== -->
+
         <!-- Branch -->
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 student-field">
           <label class="form-label">Branch *</label>
           <select name="branch" class="form-select">
             <option>Select Branch</option>
@@ -50,7 +58,7 @@
         </div>
 
         <!-- Year -->
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 student-field">
           <label class="form-label">Year *</label>
           <select name="year" class="form-select">
             <option>Select Year</option>
@@ -62,15 +70,35 @@
         </div>
 
         <!-- Section -->
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 student-field">
           <label class="form-label">Section *</label>
-          <input name="section" class="form-control">
+          <input name="section"
+                 class="form-control">
+        </div>
+
+        <!-- ========== FACULTY FIELDS ========== -->
+
+        <!-- Department -->
+        <div class="col-md-6 mb-3 faculty-field"
+             style="display:none;">
+          <label class="form-label">Department *</label>
+          <input name="department"
+                 class="form-control">
+        </div>
+
+        <!-- Designation -->
+        <div class="col-md-6 mb-3 faculty-field"
+             style="display:none;">
+          <label class="form-label">Designation *</label>
+          <input name="designation"
+                 class="form-control">
         </div>
 
         <!-- Phone -->
         <div class="col-md-6 mb-3">
           <label class="form-label">Phone Number *</label>
-          <input name="phone" class="form-control">
+          <input name="phone"
+                 class="form-control" required>
         </div>
 
         <!-- Password -->
@@ -78,15 +106,17 @@
           <label class="form-label">Password *</label>
           <input type="password"
                  name="password"
-                 class="form-control">
+                 class="form-control" required>
         </div>
 
         <!-- Confirm Password -->
         <div class="col-md-6 mb-3">
-          <label class="form-label">Confirm Password *</label>
+          <label class="form-label">
+            Confirm Password *
+          </label>
           <input type="password"
                  name="confirmPassword"
-                 class="form-control">
+                 class="form-control" required>
         </div>
 
       </div>
@@ -103,3 +133,45 @@
   </div>
 
 </div>
+
+<!-- ========== SCRIPT ========== -->
+
+<script>
+  const roleSelect = document.getElementById("role");
+
+  const studentFields =
+    document.querySelectorAll(".student-field");
+
+  const facultyFields =
+    document.querySelectorAll(".faculty-field");
+
+  roleSelect.addEventListener("change", () => {
+
+    if(roleSelect.value === "Faculty"){
+
+      // Hide student fields
+      studentFields.forEach(field=>{
+        field.style.display="none";
+      });
+
+      // Show faculty fields
+      facultyFields.forEach(field=>{
+        field.style.display="block";
+      });
+
+    } else {
+
+      // Show student fields
+      studentFields.forEach(field=>{
+        field.style.display="block";
+      });
+
+      // Hide faculty fields
+      facultyFields.forEach(field=>{
+        field.style.display="none";
+      });
+
+    }
+
+  });
+</script>
